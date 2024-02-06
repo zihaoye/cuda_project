@@ -1,5 +1,5 @@
-#define TILE_SIZE 16
-__global__ void matrixMultTiled(float *A, float *B, float *C,
+
+template <int TILE_SIZE> __global__  void matrixMultTiled(float *A, float *B, float *C,
                                 int numARows, int numAColumns,
                                 int numBRows, int numBColumns,
                                 int numCRows, int numCColumns){
@@ -52,9 +52,4 @@ __global__ void matrixMultTiled(float *A, float *B, float *C,
     if(col < numCColumns && row < numCRows){
         C[row * numCColumns + col] = Pvalue;
     }
-}
-
-
-int main(int argc, char **argv){
-    
 }
